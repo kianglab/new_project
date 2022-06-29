@@ -35,7 +35,7 @@ For more information, see this [blog post](https://github.blog/2019-06-06-genera
 - **`DELETEME.md`**: Delete this files before you get started. They are just here to retain the folder structure (Github will ignore empty folders). 
 
 ## How to use this template
-1. [Generate a new template](`https://github.com/kianglab/new_project/generate`) in your own Github account.
+1. [Generate a new template](https://github.com/kianglab/new_project/generate) in your own Github account.
     - This new repository should have a short but descriptive name. This is the name we will use internally to refer to this project for future meetings, notes, etc.
 2. [Clone or pull the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) so you have a local version on your computer. 
 3. Delete the `DELETEME.md` and `/new_project.Rproj` files. 
