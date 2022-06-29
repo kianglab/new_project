@@ -29,6 +29,17 @@ For more information, see this [blog post](https://github.blog/2019-06-06-genera
 - **`rmds/`**: Should contain rmarkdown or quarto files for the tables used in the manuscript. Tables should never be entered by hand. This both minimizes mistakes and allows us to quickly update our numbers when we received new data or change the analysis. 
 
 ## Important files
+- **`/new_project.Rproj`**: This file should either be renamed to match the project folder name or deleted so you can create a new RStudio project file. 
 - **`/.gitignore`**: You should add project-specific gitignore items to things that you do not want to share (e.g., if a publicly available file is too large), but it is very rarely the case that you should delete any items from the template gitignore. By default, we gitignore important files.
 - **`code/secrets.R`**: This file is used to store information that is not super sensitive but that you don't want shared publicly. For example, API keys (which should be changed every project) but never identifiers for the data, location of the data on Stanford servers, or your credentials. By default, this file is gitignored so there is a `code/secrets_TEMPLATE.R` file that you can rename. 
-- **`DELETEME.MD`**: Delete this files before you get started. They are just here to retain the folder structure (Github will ignore empty folders). 
+- **`DELETEME.md`**: Delete this files before you get started. They are just here to retain the folder structure (Github will ignore empty folders). 
+
+## How to use this template
+1. [Generate a new template](`https://github.com/kianglab/new_project/generate`) in your own Github account.
+    - This new repository should have a short but descriptive name. This is the name we will use internally to refer to this project for future meetings, notes, etc.
+2. [Clone or pull the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) so you have a local version on your computer. 
+3. Delete the `DELETEME.md` and `/new_project.Rproj` files. 
+4. Rename `/code/secrets_TEMPLATE.R` to `/code/secrets.R`.
+5. Start filling the folders with relevant data, literature, manuscript drafts, etc.
+6. Share this folder with Matt (preferable Dropbox or Google Drive). 
+7. Delete the information in this README and replace it with information relevant to the project (e.g., Google Doc links, an "Objectives" statement, timeline, etc.).
