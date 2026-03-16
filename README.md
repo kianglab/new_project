@@ -49,9 +49,9 @@ output/   ──→ qmd/table01.qmd       ──→ qmd/table01.html
 ## How to use this template
 
 1. [Generate a new template](https://github.com/kianglab/new_project/generate) in your own Github account.
-    - This new repository should have a short but descriptive name. This is the name we will use internally to refer to this project for future meetings, notes, etc.
+    - This new repository should have a slug — a short but descriptive name. This is the name we will use internally to refer to this project for future meetings, notes, etc.
 2. [Clone or pull the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) so you have a local version on your computer.
-3. Delete the `DELETEME.md` and rename `/new_project.Rproj` to match your project name.
+3. Rename `/new_project.Rproj` to match your project name (slug).
 4. Rename `/code/secrets_TEMPLATE.R` to `/code/secrets.R`.
 5. Update `config.yml` with your project-specific parameters (date ranges, core counts, data paths).
 6. Initialize `{renv}`: open the project in RStudio, run `renv::init()`, then `renv::snapshot()`.
