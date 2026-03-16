@@ -10,6 +10,10 @@ For more on the rationale behind this template, see our lab manual appendices on
 
 To use this template repository, just click on the green "Use this template" button on [the main repo page](https://github.com/kianglab/new_project) or go to [`https://github.com/kianglab/new_project/generate`](https://github.com/kianglab/new_project/generate) and create a new repository. (See this [GitHub blog post](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/) for more.)
 
+### File paths
+
+Note: [`{here}`](https://here.r-lib.org/) is a core dependency in all our projects. `here::here()` builds file paths relative to the project root (anchored by the `.Rproj` file), so paths work on any machine without hard-coding. This is especially important because our projects often spread across multiple environments (e.g., linux on Stanford servers, macOS locally, Windows for a collaborator, etc.). Use `here::here("data", "clean.csv")` instead of `"data/clean.csv"` or absolute paths. Never use `setwd()`. See the lab manual's [project structure appendix](https://kianglab.github.io/labmanual/projectstructure.html#projectstructure-setwd) for more.
+
 ## Project structure
 
 - **`code/`**: This folder should contain all your code. Most files should begin with a number and all files should be ordered so they can be run sequentially (e.g., `01_clean_data.R`, `02_fit_models.R`, `03_analyze_results.R`, etc.). There are usually two exceptions: `utils.R` which contains short helper functions you'll use across multiple code files and `mk_nytimes.R` or other plot themes that you'll use across multiple plotting scripts.
@@ -38,10 +42,8 @@ output/   ──→ qmd/table01.qmd       ──→ qmd/table01.html
 - **`/new_project.Rproj`**: This file should be renamed to match the project folder name or deleted so you can create a new RStudio project file. The template ships with `RestoreWorkspace: No`, `SaveWorkspace: No`, and `AlwaysSaveHistory: No` — these ensure R starts with a clean environment every time, which is critical for reproducibility.
 - **`/.gitignore`**: You should add project-specific gitignore items to things that you do not want to share (e.g., if a publicly available file is too large), but it is very rarely the case that you should delete any items from the template gitignore. By default, we gitignore private data, secrets, `{renv}` libraries, Quarto build artifacts, and common large binary formats (parquet, duckdb, etc.).
 - **`/config.yml`**: Project-level parameters (date ranges, core counts, data paths, analysis flags). Read with `{config}` via `config::get()`. Centralizing parameters means changing a date range or toggling a sensitivity analysis requires editing one file, not hunting through every script.
-- **`code/secrets.R`**: This file is used to store information that is not super sensitive but that you don't want shared publicly. For example, API keys (which should be changed every project) but never identifiers for the data, location of the data on Stanford servers, or your credentials. By default, this file is `.gitignore`d so there is a `code/secrets_TEMPLATE.R` file that you can rename.
+- **`code/secrets.R`**: This file is used to store information that is not super sensitive but that you don't want shared publicly. For example, API keys (which should be changed every project), proprietary column names of restricted data, location of data on secure Stanford servers, other credentials you may need in your code. By default, this file is `.gitignore`d so there is a `code/secrets_TEMPLATE.R` file that you can rename.
 - **`code/utils.R`**: Shared helper functions used across multiple scripts. Source it with `source(here::here("code", "utils.R"))`. If a helper grows complex enough to need its own documentation or tests, move it to a package.
-
-Note: [`{here}`](https://here.r-lib.org/) is a core dependency in all our projects. `here::here()` builds file paths relative to the project root (anchored by the `.Rproj` file), so paths work on any machine without hard-coding. Use `here::here("data", "clean.csv")` instead of `"data/clean.csv"` or absolute paths. Never use `setwd()`. See the [project structure appendix](https://kianglab.github.io/labmanual/projectstructure.html#projectstructure-setwd) for why.
 - **`renv.lock`**: Machine-readable record of package dependencies (committed to Git). Run `renv::restore()` to reproduce the exact package environment. See the `{renv}` section below.
 
 ## How to use this template
