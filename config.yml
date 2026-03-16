@@ -1,0 +1,34 @@
+## config.yml ----
+## Project-level configuration parameters. Read with config::get().
+##
+## Usage:
+##   library(config)
+##   cfg <- config::get()
+##   cfg$start_year
+##
+## For environment-specific overrides, add sections like:
+##   production:
+##     n_cores: 32
+##
+## See: https://rstudio.github.io/config/
+
+default:
+  ## -- Date range --
+  # start_year: 2010
+  # end_year: 2022
+
+  ## -- Parallelization --
+  # n_cores: 4
+
+  ## -- Data paths --
+  ## Use relative paths from the project root. For private data that lives
+  ## outside the repo (e.g., on a secure server), store the path here so
+  ## every collaborator can update it in one place.
+  # data_dir: "data"
+  # private_data_dir: "data_private"
+
+  ## -- Analysis flags --
+  ## Toggle expensive steps on/off so you can skip them during development.
+  # run_sensitivity: true
+  # run_bootstraps: true
+  # n_bootstraps: 1000
